@@ -23,13 +23,14 @@ Le milestone vanno seguite in ordine. Non passate alla richiesta della m2 se non
  
  
 
-
+//CREO L'EVENTO AL BOTTONE SUBMIT
 
 formEL.addEventListener('submit', function (e) {
     e.preventDefault()
+    //CREO LE VARIABILI DOVE SI SALVANO I DATI INSERITI DALL'UTENTE
      const memberNameEl = (e.target.memberName.value);
      const kmEl = (e.target.km.value);
-    
+    //CREO UN CICLO CHE CONTROLLA EFFETTIVAMENTE CHE I VALORI INSERITI SIANO CORRETTI
    if (isNaN(memberNameEl) || !kmEl === '') {
     console.log(memberNameEl);
     console.log(kmEl);
