@@ -30,16 +30,45 @@ formEL.addEventListener('submit', function (e) {
     //CREO LE VARIABILI DOVE SI SALVANO I DATI INSERITI DALL'UTENTE
      const memberNameEl = (e.target.memberName.value);
      const kmEl = (e.target.km.value);
+     const ageEl =(e.target.age.value) ;
+     const ticket_price = 0.21;
     //CREO UN CICLO CHE CONTROLLA EFFETTIVAMENTE CHE I VALORI INSERITI SIANO CORRETTI
    if (isNaN(memberNameEl) || !kmEl === '') {
     console.log(memberNameEl);
     console.log(kmEl);
+    console.log(ageEl);
+    
    } else{
     
     alert ("inserisci un valore corretto")   
     
    }
+    // CREIAMO LA VARIABILE DI CALCOLO DI PREZZO A CHILOMETRO 
+   let subtotal = kmEl * ticket_price ;
+   console.log(subtotal);
+
+   // CREIAMO DELLE VARIABILI DOVE SI CALCOLA LO SCONTO
+
+let junior = (subtotal * 20) / 100;
+let senior = (subtotal * 40) / 100;
+//LOGGHIAMO LE VARIABILI MENO LO SCONTO CALCOLATO PRIMA IN BASE ALLA CONDIZIONE NECESSARIA
+
+if (ageEl ==="minorenne"){
+ console.log((subtotal - junior).toFixed(2));
+ 
     
+}else if (ageEl === "senior"){
+    console.log((subtotal - senior).toFixed(2));
+    
+}else{
+    console.log(subtotal);
+    
+} 
+
+
+
+
+
 })
 
 
