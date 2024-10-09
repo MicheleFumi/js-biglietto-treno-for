@@ -17,11 +17,29 @@ Le milestone vanno seguite in ordine. Non passate alla richiesta della m2 se non
 //MILESTONE 1
 
 
+ const formEL = document.querySelector('form')
+ console.log(formEL)
+
+ 
+ 
 
 
 
-
-
+formEL.addEventListener('submit', function (e) {
+    e.preventDefault()
+     const memberNameEl = (e.target.memberName.value);
+     const kmEl = (e.target.km.value);
+    
+   if (isNaN(memberNameEl) || !kmEl === '') {
+    console.log(memberNameEl);
+    console.log(kmEl);
+   } else{
+    
+    alert ("inserisci un valore corretto")   
+    
+   }
+    
+})
 
 
 
