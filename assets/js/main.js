@@ -13,8 +13,7 @@ La risposta finale (o output) sarà anch’essa da scrivere in console.
 MILESTONE 2: Solo una volta che il milestone 1 sarà completo e funzionante allora realizzeremo un form in pagina in cui l’utente potrà inserire i dati e visualizzare il calcolo finale con il prezzo. 
 Il recap dei dati e l'output del prezzo finale, andranno quindi stampati in pagina (il prezzo dovrà essere formattato con massimo due decimali, per indicare i centesimi sul prezzo). 
 Questo richiederà un minimo di ricerca.
-Nota: Se non vi sentite particolarmente creativi, questa potrebbe essere un’implementazione da seguire per il secondo milestone. 
-Potete scegliere di implementare una soluzione completamente diversa oppure simile, ma in ogni caso cercate di farla vostra.
+Nota: Se non vi sentite particolarmente creativi, questa potrebbe essere un’implementazione da seguire per il secondo milestone. Potete scegliere di implementare una soluzione completamente diversa oppure simile, ma in ogni caso cercate di farla vostra.
 Nota 2:
 Le milestone vanno seguite in ordine. Non passate alla richiesta della m2 se non avete prima completato la m1. */
 
@@ -23,7 +22,7 @@ Le milestone vanno seguite in ordine. Non passate alla richiesta della m2 se non
 
  const formEL = document.querySelector('form')
  console.log(formEL)
-
+ const cardEl = document.querySelector('.card-body')
  
  
 
@@ -68,12 +67,53 @@ if (ageEl ==="minorenne"){
     console.log((subtotal).toFixed(2));
     
 } 
+const memberEl =`
 
+<h2 class="text-white text-center">IL TUO BIGLIETTO</h2>
+<div class="container bg-white">
+    <h3>dettaglio passeggeri</h3>
+    <div class="row border border-dark text-center">
 
+        <div class="col bg-secondary pt-2">
+            <h4>NOME PASSEGGERO</h4>
+            <div class="py-4"><strong>${memberNameEl}</strong></div>
+        </div>
 
+        <div class="col">
+            <div class="py-2">
+                <strong>offerta</strong>
+                
+            </div>
+        </div>
 
+        <div class="col">
+            <div class="py-2">
+                <strong>Carrozza</strong>
+                <div class="py-5">5</div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="py-2">
+                <strong>Codice CP</strong>
+                <div class="py-5">92911</div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="py-2">
+                <strong>Costo Biglietto</strong>
+                <div class="py-5">€</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+`
+cardEl.insertAdjacentHTML('beforeend', memberEl);
 
 })
+
 
 
 
