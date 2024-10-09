@@ -54,19 +54,27 @@ formEL.addEventListener('submit', function (e) {
 
 let junior = (subtotal * 20) / 100;
 let senior = (subtotal * 40) / 100;
+
+let discount ;
+let message;
+ 
+ 
 //LOGGHIAMO LE VARIABILI MENO LO SCONTO CALCOLATO PRIMA IN BASE ALLA CONDIZIONE NECESSARIA
 
 if (ageEl ==="minorenne"){
- console.log((subtotal - junior).toFixed(2));
- 
+
+    discount = ((subtotal - senior).toFixed(2));
+    message = "<div> Tariffa Junior</div>"
     
 }else if (ageEl === "senior"){
-    console.log((subtotal - senior).toFixed(2));
-    
+    discount = ((subtotal - senior).toFixed(2));
+    message = "<div>Tariffa Senior</div>"
 }else{
-    console.log((subtotal).toFixed(2));
-    
+    discount = ((subtotal).toFixed(2));
+    message = "<div>Tariffa Normale</div>"
 } 
+
+
 const memberEl =`
 
 <h2 class="text-white text-center">IL TUO BIGLIETTO</h2>
@@ -82,6 +90,7 @@ const memberEl =`
         <div class="col">
             <div class="py-2">
                 <strong>offerta</strong>
+                <div class="py-5">${message}</div>
                 
             </div>
         </div>
@@ -103,7 +112,7 @@ const memberEl =`
         <div class="col">
             <div class="py-2">
                 <strong>Costo Biglietto</strong>
-                <div class="py-5">€</div>
+                <div class="py-5">${discount}€</div>
             </div>
         </div>
 
