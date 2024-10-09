@@ -26,7 +26,7 @@
 
                     <div class="mb-3">
 
-                        <label for="memberName" class=" form-label text-danger ">Nome Cognome</label>
+                        <label for="memberName" class=" form-label text-danger border-warning ">Nome Cognome</label>
                         <input type="text" class="form-control" name="memberName" id="memberName"
                             aria-describedby="helpId" placeholder="" />
 
@@ -36,31 +36,36 @@
 
                 <div class="col-4">
 
-                    <label for="km" class="form-label text-danger ">Km da percorrere</label>
+                    <label for="km" class="form-label text-danger border-warning ">Km da percorrere</label>
                     <input type="text" class="form-control" name="km" id="km" aria-describedby="helpId"
                         placeholder="" />
 
                 </div>
 
                 <div class="col-4">
-                    <label for="age" class="form-label text-danger ">fascia d'età</label>
+                    <label for="age" class="form-label text-danger border-warning ">fascia d'età</label>
                     <select id="age" class="form-select">
                         <option>maggiorenne</option>
                         <option>minorenne</option>
                         <option>senior >65 </option>
 
                     </select>
-                    <div>
-                        <button type="submit" class="btn btn-primary"> calcola </button>
-                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center gap-3 ">
+                <div class="py-3 ">
+                    <button type="submit" class="btn btn-light btn-outline-warning text-danger border-warning"> Genera </button>
+                </div>
+                <div class=" py-3">
+                    <button type="reset" class="btn btn-light text-danger border-danger"> Annulla </button>
                 </div>
             </div>
     </div>
-   
+
     </form>
 
     <div class="card-body">
-        
+
     </div>
     <script src="./assets/js/main.js"></script>
 
@@ -75,9 +80,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
