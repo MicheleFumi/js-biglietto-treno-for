@@ -54,7 +54,7 @@ formEL.addEventListener('submit', function (e) {
 
 let junior = (subtotal * 20) / 100;
 let senior = (subtotal * 40) / 100;
-
+// CREO LE VARIABILI CHE NELL'IF VERRANNO STAMPATE NELL'HTML
 let discount ;
 let message;
  
@@ -63,10 +63,10 @@ let message;
 
 if (ageEl ==="minorenne"){
 
-    discount = ((subtotal - senior).toFixed(2));
+    discount = ((subtotal - junior).toFixed(2));
     message = "<div> Tariffa Junior</div>"
     
-}else if (ageEl === "senior"){
+}else if (ageEl === "senior >65"){
     discount = ((subtotal - senior).toFixed(2));
     message = "<div>Tariffa Senior</div>"
 }else{
@@ -74,7 +74,7 @@ if (ageEl ==="minorenne"){
     message = "<div>Tariffa Normale</div>"
 } 
 
-
+//CREO LA CARD CHE UNA VOLTA CHE L'UTENTE FORNISCE LE INFORMAZIONI CALCOLA LO SCONTO DEL BIGLIETTO E RIPORTA IL NOME
 const memberEl =`
 
 <h2 class="text-white text-center">IL TUO BIGLIETTO</h2>
