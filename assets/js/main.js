@@ -20,62 +20,65 @@ Le milestone vanno seguite in ordine. Non passate alla richiesta della m2 se non
 //MILESTONE 1
 
 
- const formEL = document.querySelector('form')
- console.log(formEL)
- const cardEl = document.querySelector('.card-body')
- 
- 
+const formEL = document.querySelector('form')
+console.log(formEL)
+const cardEl = document.querySelector('.card-body')
+const resetEl = document.querySelector('[type="reset"]')
+
 
 //CREO L'EVENTO AL BOTTONE SUBMIT
 
 formEL.addEventListener('submit', function (e) {
     e.preventDefault()
     //CREO LE VARIABILI DOVE SI SALVANO I DATI INSERITI DALL'UTENTE
-     const memberNameEl = (e.target.memberName.value);
-     const kmEl = (e.target.km.value);
-     const ageEl =(e.target.age.value) ;
-     const ticket_price = 0.21;
+    const memberNameEl = (e.target.memberName.value);
+    const kmEl = (e.target.km.value);
+    const ageEl = (e.target.age.value);
+    const ticket_price = 0.21;
     //CREO UN CICLO CHE CONTROLLA EFFETTIVAMENTE CHE I VALORI INSERITI SIANO CORRETTI
-   if (isNaN(memberNameEl) || !kmEl === '') {
-    console.log(memberNameEl);
-    console.log(kmEl);
-    console.log(ageEl);
-    
-   } else{
-    
-    alert ("inserisci un valore corretto")   
-    
-   }
+    if (isNaN(memberNameEl) || !kmEl === '') {
+        console.log(memberNameEl);
+        console.log(kmEl);
+        console.log(ageEl);
+
+    } else {
+
+        alert("inserisci un valore corretto")
+
+    }
     // CREIAMO LA VARIABILE DI CALCOLO DI PREZZO A CHILOMETRO 
-   let subtotal = kmEl * ticket_price ;
-   console.log(subtotal);
+    let subtotal = kmEl * ticket_price;
+    console.log(subtotal);
 
-   // CREIAMO DELLE VARIABILI DOVE SI CALCOLA LO SCONTO
+    // CREIAMO DELLE VARIABILI DOVE SI CALCOLA LO SCONTO
 
-let junior = (subtotal * 20) / 100;
-let senior = (subtotal * 40) / 100;
-// CREO LE VARIABILI CHE NELL'IF VERRANNO STAMPATE NELL'HTML
-let discount ;
-let message;
- 
- 
-//LOGGHIAMO LE VARIABILI MENO LO SCONTO CALCOLATO PRIMA IN BASE ALLA CONDIZIONE NECESSARIA
+    let junior = (subtotal * 20) / 100;
+    let senior = (subtotal * 40) / 100;
+    // CREO LE VARIABILI CHE NELL'IF VERRANNO STAMPATE NELL'HTML
+    let discount;
+    let message;
 
-if (ageEl ==="minorenne"){
 
-    discount = ((subtotal - junior).toFixed(2));
-    message = "<div> Tariffa Junior</div>"
-    
-}else if (ageEl === "senior >65"){
-    discount = ((subtotal - senior).toFixed(2));
-    message = "<div>Tariffa Senior</div>"
-}else{
-    discount = ((subtotal).toFixed(2));
-    message = "<div>Tariffa Normale</div>"
-} 
+    //LOGGHIAMO LE VARIABILI MENO LO SCONTO CALCOLATO PRIMA IN BASE ALLA CONDIZIONE NECESSARIA
+
+    if (ageEl === "minorenne") {
+
+        discount = ((subtotal - junior).toFixed(2));
+        message = "<div> Tariffa Junior</div>"
+
+    } else if (ageEl === "senior >65") {
+        discount = ((subtotal - senior).toFixed(2));
+        message = "<div>Tariffa Senior</div>"
+    } else {
+        discount = ((subtotal).toFixed(2));
+        message = "<div>Tariffa Normale</div>"
+    }
+    // AGGIUNTO RANDOM COUNTER PER VAGONE E BIGLIETTO CP
+    let vagone = Math.floor(Math.random() * 10) + 1;
+    let cp = Math.floor(Math.random() * 99000) + 1;
 
 //CREO LA CARD CHE UNA VOLTA CHE L'UTENTE FORNISCE LE INFORMAZIONI CALCOLA LO SCONTO DEL BIGLIETTO E RIPORTA IL NOME
-const memberEl =`
+const memberEl = `
 
 <h2 class="text-white text-center">IL TUO BIGLIETTO</h2>
 <div class="container bg-white">
@@ -98,14 +101,14 @@ const memberEl =`
         <div class="col">
             <div class="py-2">
                 <strong>Carrozza</strong>
-                <div class="py-5">5</div>
+                <div class="py-5">${vagone}</div>
             </div>
         </div>
 
         <div class="col">
             <div class="py-2">
                 <strong>Codice CP</strong>
-                <div class="py-5">92911</div>
+                <div class="py-5">${cp}</div>
             </div>
         </div>
 
@@ -119,11 +122,19 @@ const memberEl =`
     </div>
 </div>
 `
-cardEl.insertAdjacentHTML('beforeend', memberEl);
+cardEl.insertAdjacentHTML('afterbegin', memberEl);
 
 })
 
 
+
+
+
+formEL.addEventListener('reset', function (e) {
+    const memberNameEl = "";
+    const kmEl = "";
+    const ageEl = "";
+})
 
 
 
